@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',HomeController::class);
+Route::get('/', HomeController::class);
 
 Auth::routes();
 
 Route::get('/home', HomeController::class)->name('home');
 
-
-
-
+Route::get('/products/{product:slug}', ProductShowController::class);
